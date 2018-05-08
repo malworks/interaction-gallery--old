@@ -10,10 +10,36 @@
 </head>
 <body>
   <div class="container">
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>4</button>
+    <button class="ripple raised">Jobs</button>
+    <button class="ripple raised">Parks & Rec</button>
+    <button class="ripple raised">Permit Center</button>
+    <button class="ripple raised">Pay Online</button>
 </div>
+
+<script>
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => {
+button.addEventListener('click', function(e) {
+  let x = e.clientX;
+  let y = e.clientY;
+  let buttonTop = e.target.offsetTop;
+  let buttonLeft = e.target.offsetLeft;
+  let xInside = x - buttonLeft;
+  let yInside = y - buttonTop;
+
+  let circle = document.createElement('span');
+  circle.classList.add('circle');
+  circle.style.top = yInside + 'px';
+  circle.style.left = xInside + 'px';
+
+      this.appendChild(circle);
+      setTimeout(() => {
+          circle.remove();
+      }, 500);
+});
+});
+
+</script>
 </body>
 </html>
